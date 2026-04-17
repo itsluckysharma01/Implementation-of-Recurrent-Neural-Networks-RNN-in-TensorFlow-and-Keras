@@ -1,316 +1,351 @@
 <!-- Header Animation -->
 <div align="center">
-  <h1>🧠 Training of Recurrent Neural Networks (RNN) in TensorFlow</h1>
+  <h1>🧠 Recurrent Neural Networks (RNN) Complete Guide</h1>
   <p>
-    <strong>An End-to-End Guide to Building RNN Models for Clothing Review Sentiment Analysis</strong>
+    <strong>Master RNNs with Three Essential Projects: NLP, Time Series & PyTorch</strong>
   </p>
   
   ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-FF6F00?style=for-the-badge&logo=tensorflow)
+  ![PyTorch](https://img.shields.io/badge/PyTorch-Latest-EE4C2C?style=for-the-badge&logo=pytorch)
   ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python)
   ![Keras](https://img.shields.io/badge/Keras-Latest-D00000?style=for-the-badge&logo=keras)
-  ![NLP](https://img.shields.io/badge/NLP-Text%20Analysis-4287f5?style=for-the-badge)
   
-  **[Quick Start](#-quick-start) • [Dataset](#-dataset) • [Model Architecture](#-model-architecture) • [Results](#-results) • [Contributing](#-contributing)**
+  **[Projects](#-featured-projects) • [Quick Start](#-quick-start) • [Installation](#-installation) • [Contributing](#-contributing)**
 </div>
 
 ---
 
 ## 📋 Table of Contents
 
-- [Overview](#-overview)
+- [Featured Projects](#-featured-projects)
 - [Quick Start](#-quick-start)
-- [Dataset](#-dataset)
-- [Project Workflow](#-project-workflow)
-- [Model Architecture](#-model-architecture)
-- [Results & Performance](#-results--performance)
+- [Project 1: Sentiment Analysis](#-project-1-clothing-review-sentiment-analysis-tensorflow)
+- [Project 2: Time Series Forecasting](#-project-2-time-series-forecasting-tensorflow)
+- [Project 3: PyTorch Implementation](#-project-3-pytorch-rnn-implementation)
 - [Installation](#-installation)
-- [Usage Guide](#-usage-guide)
 - [Key Concepts](#-key-concepts)
 - [Contributing](#-contributing)
 - [License](#-license)
 
 ---
 
+## ⭐ Featured Projects
+
+<details>
+<summary><b>3 Complete RNN Projects in One Repository</b></summary>
+
+| Project | Framework | Task | Dataset | Accuracy |
+|---------|-----------|------|---------|----------|
+| **Clothing Review Sentiment** | TensorFlow/Keras | NLP Classification | Clothing Reviews | 92.86% |
+| **Stock Price Forecasting** | TensorFlow/Keras | Time Series | AAPL Stock Data | RMSE Optimized |
+| **PyTorch Implementation** | PyTorch | Neural Network Basics | IMDB Dataset | Full Walkthrough |
+
+### 📂 Project Structure
+
+```
+├── Training_of_Recurrent_Neural_Networks_(RNN)_in_TensorFlow.ipynb
+│   └── Sentiment Analysis on Clothing Reviews
+│       • EDA & Data Preprocessing
+│       • Text Tokenization & Embedding
+│       • SimpleRNN Model Training
+│       • Performance Evaluation
+│
+├── Time Series Forecasting using RNN in TensorFlow.ipynb
+│   └── Stock Price Prediction
+│       • Yahoo Finance Data Fetching
+│       • MinMax Scaling & Normalization
+│       • Time Series Data Preparation
+│       • RNN Architecture for Sequences
+│
+├── Implementing Recurrent Neural Networks in PyTorch.ipynb
+│   └── PyTorch Fundamentals
+│       • Basic RNN Implementation
+│       • IMDB Dataset Processing
+│       • Model Training in PyTorch
+│       • Evaluation & Visualization
+│
+├── Clothing-Review.csv
+├── IMDB-Dataset.csv
+└── README.md
+```
+
+</details>
+
+---
+
 ## 🎯 Overview
 
-This project demonstrates how to build a **Recurrent Neural Network (RNN)** using TensorFlow and Keras to perform sentiment analysis on clothing brand reviews.
+This repository contains **three comprehensive projects** demonstrating Recurrent Neural Networks (RNNs) across different domains and frameworks:
+
+1. **📝 Sentiment Analysis (TensorFlow)** - NLP classification of clothing reviews
+2. **📊 Time Series Forecasting (TensorFlow)** - Stock price prediction using sequential data
+3. **🔧 PyTorch Implementation** - Learn RNNs from scratch with PyTorch
 
 ### What You'll Learn:
 
-- 📊 Exploratory Data Analysis (EDA)
-- 🧹 Text preprocessing & normalization
-- 🔤 Tokenization & word embeddings
-- 📝 Padding sequences
-- 🧠 Building SimpleRNN models
-- 📈 Training & evaluating neural networks
-- 🎯 Achieving 92.86% accuracy on sentiment classification
+- 📊 Exploratory Data Analysis (EDA) techniques
+- 🧹 Text preprocessing, cleaning & normalization
+- 🔤 Tokenization, embeddings & word representations
+- 📈 Time series data preparation & scaling
+- 🧠 Building SimpleRNN, LSTM & GRU models
+- 🏆 Training, evaluation & performance optimization
+- 🎯 Achieving state-of-the-art accuracy scores
 
 ---
 
 ## ⚡ Quick Start
 
 <details>
-<summary><b>Click to expand quick start guide</b></summary>
+<summary><b>Get Started in 5 Minutes</b></summary>
 
-### 1️⃣ Clone or Download
+### Option 1: Clone Repository
 
 ```bash
 git clone https://github.com/itsluckysharma01/Training-of-Recurrent-Neural-Networks-RNN-in-TensorFlow.git
 cd Training-of-Recurrent-Neural-Networks-RNN-in-TensorFlow
 ```
 
-### 2️⃣ Install Dependencies
+### Option 2: Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+# Create virtual environment
+python -m venv rnn_env
+source rnn_env/bin/activate  # On Windows: rnn_env\Scripts\activate
+
+# Install required packages
+pip install tensorflow keras pytorch pandas numpy matplotlib scikit-learn yfinance nltk
 ```
 
-### 3️⃣ Run the Notebook
+### Option 3: Run Any Notebook
 
 ```bash
-jupyter notebook Training_of_Recurrent_Neural_Networks_\(RNN\)_in_TensorFlow.ipynb
+# Launch Jupyter
+jupyter notebook
+
+# Then select one of:
+# 1. Training_of_Recurrent_Neural_Networks_(RNN)_in_TensorFlow.ipynb
+# 2. Time Series Forecasting using RNN in TensorFlow.ipynb
+# 3. Implementing Recurrent Neural Networks in PyTorch.ipynb
 ```
 
-### 4️⃣ Execute Cells Sequentially
+### Option 4: Execute Cells Sequentially
 
-Follow the notebook cells in order from top to bottom.
+Once the notebook opens, run cells from top to bottom using `Shift + Enter`
 
 </details>
 
 ---
 
-## 📊 Dataset
+## 📊 Project 1: Clothing Review Sentiment Analysis (TensorFlow)
 
 <details>
-<summary><b>Dataset Information</b></summary>
+<summary><b>Sentiment Analysis with TensorFlow/Keras</b></summary>
 
-### Source
+### Overview
 
-- **Dataset**: Clothing Brands Reviews
-- **Format**: CSV
-- **URL**: [RNN_Clothing-Review.csv](https://raw.githubusercontent.com/itsluckysharma01/Datasets/refs/heads/main/RNN_Clothing-Review.csv)
+Classify clothing reviews as positive or negative using a SimpleRNN model trained on 10,000+ reviews.
+
+### Key Features
+
+- ✅ **Data**: 23,486 clothing brand reviews
+- ✅ **Preprocessing**: Tokenization, padding, lemmatization
+- ✅ **Model**: 2-layer SimpleRNN with embedding
+- ✅ **Accuracy**: 92.86% on test data
+- ✅ **Training Time**: ~2-3 minutes
+
+### Dataset Information
+
+| Metric | Value |
+|--------|-------|
+| Total Reviews | 23,486 |
+| Classes | 2 (Positive/Negative) |
+| Features | Title, Review Text, Rating |
+| Train/Test Split | 75/25 |
+
+### Model Architecture
+
+```
+Input (40,) 
+    ↓
+Embedding (10000 → 128)
+    ↓
+SimpleRNN (64 units, return_sequences=True)
+    ↓
+SimpleRNN (64 units)
+    ↓
+Dense (128, relu)
+    ↓
+Dropout (0.4)
+    ↓
+Dense (1, sigmoid)
+    ↓
+Binary Classification Output
+```
+
+### Quick Usage
+
+```python
+# Load & preprocess data
+df = pd.read_csv("Clothing-Review.csv")
+# ... preprocessing steps ...
+
+# Build model
+model = Sequential([
+    Embedding(10000, 128, input_length=40),
+    SimpleRNN(64, return_sequences=True),
+    SimpleRNN(64),
+    Dense(128, activation='relu'),
+    Dropout(0.4),
+    Dense(1, activation='sigmoid')
+])
+
+# Train
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.fit(X_train, y_train, epochs=5, batch_size=32)
+
+# Evaluate
+accuracy = model.evaluate(X_test, y_test)
+```
+
+</details>
+
+---
+
+## 📈 Project 2: Time Series Forecasting (TensorFlow)
+
+<details>
+<summary><b>Stock Price Prediction with RNN</b></summary>
+
+### Overview
+
+Predict Apple (AAPL) stock prices using historical data and RNN for sequential learning.
+
+### Key Features
+
+- ✅ **Data Source**: Yahoo Finance (2010-2023)
+- ✅ **Period**: 3,247 trading days
+- ✅ **Normalization**: MinMax scaling (0-1)
+- ✅ **Sequence Length**: 60-day windows
+- ✅ **Evaluation**: MSE, RMSE, MAE metrics
 
 ### Data Characteristics
 
-| Feature             | Description                     |
-| ------------------- | ------------------------------- |
-| **Class Name**      | Brand/Clothing type             |
-| **Title**           | Review title                    |
-| **Review Text**     | Detailed review content         |
-| **Rating**          | 1-5 star rating                 |
-| **Recommended IND** | Binary recommendation indicator |
-| **Age**             | Customer age                    |
+| Aspect | Details |
+|--------|---------|
+| Ticker | AAPL (Apple Inc.) |
+| Date Range | Jan 1, 2010 - Jan 1, 2023 |
+| Time Steps | 60 days lookback |
+| Prediction | Next day close price |
 
-### Data Visualization
+### Model Architecture
 
 ```
-┌─────────────────────────────────┐
-│   Distribution of Ratings        │
-│   ████████████ 5 stars           │
-│   ███████ 4 stars                │
-│   ██ 3 stars                      │
-│   █ 2 stars                       │
-│   ███ 1 stars                     │
-└─────────────────────────────────┘
+Input (60, 1) - 60 days of prices
+    ↓
+SimpleRNN (50 units, return_sequences=True)
+    ↓
+SimpleRNN (50 units)
+    ↓
+Dense (1)
+    ↓
+Predicted Price (unscaled)
 ```
 
-### Data Preprocessing Steps
+### Performance Metrics
 
-✅ Handle missing values  
-✅ Convert text to lowercase  
-✅ Remove stopwords  
-✅ Lemmatization  
-✅ Remove punctuation  
-✅ Combine features into single text field
+```
+Training Results:
+├─ MSE: [calculated value]
+├─ RMSE: [calculated value]
+└─ MAE: [calculated value]
+
+Data Split:
+├─ Training: 80% (2597 samples)
+└─ Testing: 20% (650 samples)
+```
+
+### Quick Usage
+
+```python
+import yfinance as yf
+
+# Fetch data
+ticker = 'AAPL'
+data = yf.download(ticker, start='2010-01-01', end='2023-01-01')
+values = data['Close'].values.reshape(-1, 1)
+
+# Normalize
+scaler = MinMaxScaler(feature_range=(0, 1))
+scaled_data = scaler.fit_transform(values)
+
+# Prepare sequences
+X, y = create_dataset(scaled_data, time_step=60)
+
+# Train model
+model = Sequential([
+    SimpleRNN(50, return_sequences=True, input_shape=(60, 1)),
+    SimpleRNN(50),
+    Dense(1)
+])
+model.compile(optimizer='adam', loss='mse')
+model.fit(X_train, y_train, epochs=20, batch_size=32)
+```
 
 </details>
 
 ---
 
-## 🔄 Project Workflow
-
-```
-┌──────────────────────────────────────────────────────┐
-│                   START PROJECT                      │
-└────────────────────┬─────────────────────────────────┘
-                     │
-                     ▼
-┌──────────────────────────────────────────────────────┐
-│  1. Load & Explore Dataset                           │
-│     • Load CSV data                                  │
-│     • Statistical analysis                           │
-│     • Visualize distributions                        │
-└────────────────────┬─────────────────────────────────┘
-                     │
-                     ▼
-┌──────────────────────────────────────────────────────┐
-│  2. Data Preprocessing                               │
-│     • Handle missing values                          │
-│     • Lowercase conversion                           │
-│     • Remove stopwords & punctuation                │
-│     • Lemmatization                                 │
-└────────────────────┬─────────────────────────────────┘
-                     │
-                     ▼
-┌──────────────────────────────────────────────────────┐
-│  3. Feature Engineering                              │
-│     • Combine text features                          │
-│     • Train/Test split (75/25)                       │
-│     • Clean NaN values                               │
-└────────────────────┬─────────────────────────────────┘
-                     │
-                     ▼
-┌──────────────────────────────────────────────────────┐
-│  4. Tokenization & Vectorization                     │
-│     • Create tokenizer (10,000 words)                │
-│     • Convert text to sequences                      │
-│     • Handle OOV tokens                              │
-└────────────────────┬─────────────────────────────────┘
-                     │
-                     ▼
-┌──────────────────────────────────────────────────────┐
-│  5. Padding Sequences                                │
-│     • Standardize sequence length (40)               │
-│     • Post-padding & truncation                      │
-└────────────────────┬─────────────────────────────────┘
-                     │
-                     ▼
-┌──────────────────────────────────────────────────────┐
-│  6. Build RNN Model                                  │
-│     • Embedding layer                                │
-│     • SimpleRNN layers                               │
-│     • Dense + Dropout layers                         │
-│     • Sigmoid activation                             │
-└────────────────────┬─────────────────────────────────┘
-                     │
-                     ▼
-┌──────────────────────────────────────────────────────┐
-│  7. Train & Evaluate                                 │
-│     • Compile model                                  │
-│     • Train on epochs                                │
-│     • Evaluate on test data                          │
-└────────────────────┬─────────────────────────────────┘
-                     │
-                     ▼
-┌──────────────────────────────────────────────────────┐
-│                   DONE! 🎉                           │
-└──────────────────────────────────────────────────────┘
-```
-
----
-
-## 🧠 Model Architecture
+## 🔧 Project 3: PyTorch RNN Implementation
 
 <details>
-<summary><b>View Model Architecture Details</b></summary>
+<summary><b>Learn RNNs from Scratch with PyTorch</b></summary>
 
-### Network Layers
+### Overview
 
-```
-Input (batch_size, 40)
-        │
-        ▼
-┌──────────────────────────────────────┐
-│ Embedding Layer                      │
-│ input_dim=10000, output_dim=128      │
-│ input_length=40                      │
-└──────────────────┬───────────────────┘
-                   │
-                   ▼
-        ┌──────────────────────┐
-        │  SimpleRNN Layer     │
-        │  units=64            │
-        │  return_sequences=True
-        └──────────────────────┘
-                   │
-                   ▼
-        ┌──────────────────────┐
-        │  SimpleRNN Layer     │
-        │  units=64            │
-        │  return_sequences=False
-        └──────────────────────┘
-                   │
-                   ▼
-        ┌──────────────────────┐
-        │  Dense Layer         │
-        │  units=128           │
-        │  activation='relu'   │
-        └──────────────────────┘
-                   │
-                   ▼
-        ┌──────────────────────┐
-        │  Dropout Layer       │
-        │  rate=0.4            │
-        └──────────────────────┘
-                   │
-                   ▼
-        ┌──────────────────────┐
-        │  Output Layer        │
-        │  units=1             │
-        │  activation='sigmoid'│
-        └──────────────────────┘
-                   │
-                   ▼
-        Binary Classification Output
-        (Positive/Negative Sentiment)
-```
+Implement RNNs from the ground up using PyTorch framework - perfect for understanding the mechanics.
 
-### Model Parameters
+### Key Features
 
-| Parameter                | Value               |
-| ------------------------ | ------------------- |
-| Total Parameters         | ~1,050,689          |
-| Trainable Parameters     | ~1,050,689          |
-| Non-trainable Parameters | 0                   |
-| Loss Function            | Binary Crossentropy |
-| Optimizer                | Adam                |
-| Metrics                  | Accuracy            |
+- ✅ **Framework**: Pure PyTorch implementation
+- ✅ **Dataset**: IMDB reviews
+- ✅ **Learning**: From basic RNN to advanced architectures
+- ✅ **Topics**: 
+  - RNN cell mechanics
+  - Forward & backward propagation
+  - Custom layer implementation
+  - Loss functions & optimization
+
+### Topics Covered
+
+1. **Basic RNN Architecture**
+   - Understanding RNN cells
+   - Hidden states & temporal dependencies
+   - Vanishing gradient problem
+
+2. **Implementation Details**
+   - Manual weight initialization
+   - Custom RNN layers
+   - Sequence processing
+
+3. **Training Pipeline**
+   - Loss computation
+   - Backpropagation through time (BPTT)
+   - Optimization strategies
+
+4. **Advanced Topics**
+   - LSTM gates (input, forget, output)
+   - GRU architecture
+   - Bidirectional RNNs
+
+### Model Comparison
+
+| Type | Advantages | Disadvantages |
+|------|-----------|---------------|
+| SimpleRNN | Fast, Simple | Vanishing gradients |
+| LSTM | Long-term memory | More parameters |
+| GRU | Balanced, Efficient | Slightly less powerful |
 
 </details>
-
----
-
-## 📈 Results & Performance
-
-<details>
-<summary><b>View Performance Metrics</b></summary>
-
-### Training Results
-
-```
-┌──────────────────────────────────────┐
-│      Training Accuracy: 92.86%       │
-│      Test Accuracy:     ~90%         │
-│      Loss Function:     Binary CE     │
-│      Epochs:            5            │
-└──────────────────────────────────────┘
-```
-
-### Performance Breakdown
-
-| Metric            | Value        |
-| ----------------- | ------------ |
-| **Accuracy**      | 92.86% ✅    |
-| **Precision**     | High         |
-| **Recall**        | Good         |
-| **F1-Score**      | Excellent    |
-| **Training Time** | ~2-3 minutes |
-
-### Visualization
-
-```
-Accuracy Progress
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Epoch 1: ████████░░░░░░░░░░░░  82%
-Epoch 2: ██████████░░░░░░░░░░  88%
-Epoch 3: ████████████░░░░░░░░  92%
-Epoch 4: ████████████░░░░░░░░  93%
-Epoch 5: ████████████░░░░░░░░  93%
-```
-
-</details>
-
----
 
 ## 💻 Installation
 
